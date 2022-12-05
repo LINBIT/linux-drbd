@@ -71,3 +71,34 @@ config DRBD_FAULT_INJECTION
 		echo 5 > /sys/module/drbd/parameters/fault_rate
 
 	  If unsure, say N.
+
+config DRBD_TRANSPORT_TCP
+	tristate "DRBD TCP transport"
+	depends on BLK_DEV_DRBD && INET
+	help
+
+	  Include a transport module that enables DRBD to communicate with its
+	  peers via TCP.
+
+	  If you enable BLK_DEV_DRBD, you likely also want to enable this.
+
+config DRBD_TRANSPORT_LB_TCP
+	tristate "DRBD load-balancing TCP transport"
+	depends on BLK_DEV_DRBD && INET
+	help
+
+	  Include a transport module that enables DRBD to communicate with its
+	  peers via TCP. This is like the TCP transport, but it establishes
+	  multiple TCP connections at the same time (one for every path).
+
+	  If unsure, say N.
+
+config DRBD_TRANSPORT_RDMA
+	tristate "DRBD RDMA transport"
+	depends on BLK_DEV_DRBD && INFINIBAND
+	help
+
+	  Include a transport module that enables DRBD to communicate with its
+	  peers via RDMA.
+
+	  If unsure, say N.
