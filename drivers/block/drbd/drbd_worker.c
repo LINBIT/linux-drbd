@@ -25,7 +25,7 @@
 #include <linux/part_stat.h>
 
 #include "drbd_int.h"
-#include "drbd_protocol.h"
+#include <linux/drbd_protocol.h>
 #include "drbd_req.h"
 
 static int make_ov_request(struct drbd_peer_device *, int);
