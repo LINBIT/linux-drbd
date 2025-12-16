@@ -12,6 +12,7 @@
 */
 
 #include <linux/drbd.h>
+#include <linux/array_size.h>
 #include "drbd_strings.h"
 
 static const char * const drbd_conn_s_names[] = {
